@@ -124,13 +124,120 @@
       "gorev": "rapor_yaz",
       "yontem": "rapor_a",
       "basarili": true
+    },
+    {
+      "gorev": "dosyalari_bul",
+      "yontem": "bul_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelimeleri_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_bul",
+      "yontem": "bul_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelimeleri_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_bul",
+      "yontem": "bul_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelimeleri_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_bul",
+      "yontem": "bul_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_oku",
+      "yontem": "oku_b",
+      "basarili": false
+    },
+    {
+      "gorev": "dosyalari_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelimeleri_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_bul",
+      "yontem": "bul_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelimeleri_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
     }
   ],
   "dersler": {
     "dosyalari_bul": [
       "bul_b"
     ],
-    "dosyalari_oku": [],
+    "dosyalari_oku": [
+      "oku_b"
+    ],
     "kelimeleri_say": [],
     "rapor_yaz": []
   },
@@ -159,6 +266,11 @@
       "adim": "dosyalari_bul",
       "yontem": "bul_b",
       "hata": "yanlis sonuc: []"
+    },
+    {
+      "adim": "dosyalari_oku",
+      "yontem": "oku_b",
+      "hata": "UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 3: ordinal not in range(128)"
     }
   ]
 }
