@@ -99,4 +99,5 @@ def main():
         print(f"{y}: {toplam} deneme, {basarili} başarılı")
 
 
-main()
+if __name__ == "__main__":
+    main()

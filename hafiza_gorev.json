@@ -139,6 +139,116 @@
       "gorev": "rapor_yaz",
       "yontem": "rapor_a",
       "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_b",
+      "basarili": false
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_b",
+      "basarili": false
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
     }
   ],
   "hatalar": [
@@ -181,6 +291,16 @@
       "adim": "kelime_say",
       "yontem": "say_b",
       "hata": "yanlis sonuc: 9"
+    },
+    {
+      "adim": "rapor_yaz",
+      "yontem": "rapor_b",
+      "hata": "TypeError: write() argument must be str, not int"
+    },
+    {
+      "adim": "rapor_yaz",
+      "yontem": "rapor_b",
+      "hata": "TypeError: write() argument must be str, not int"
     }
   ]
 }
