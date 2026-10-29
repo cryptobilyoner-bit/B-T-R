@@ -1,0 +1,1 @@
+bitir ogrenen bir sistemdir bitir hata yapar ve hatalarindan ogrenir

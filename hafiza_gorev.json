@@ -1,0 +1,186 @@
+{
+  "deneyimler": [
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_b",
+      "basarili": false
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_b",
+      "basarili": false
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_b",
+      "basarili": false
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_b",
+      "basarili": false
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_b",
+      "basarili": false
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_b",
+      "basarili": false
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_b",
+      "basarili": false
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_b",
+      "basarili": false
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    }
+  ],
+  "hatalar": [
+    {
+      "adim": "kelime_say",
+      "yontem": "say_b",
+      "hata": "yanlis sonuc: 9"
+    },
+    {
+      "adim": "rapor_yaz",
+      "yontem": "rapor_b",
+      "hata": "TypeError: write() argument must be str, not int"
+    },
+    {
+      "adim": "dosya_olustur",
+      "yontem": "olustur_b",
+      "hata": "FileNotFoundError: [Errno 2] No such file or directory: 'olmayan_klasor\\\\metin.txt'"
+    },
+    {
+      "adim": "dosyayi_oku",
+      "yontem": "oku_b",
+      "hata": "FileNotFoundError: [Errno 2] No such file or directory: 'calisma\\\\metin.txtx'"
+    },
+    {
+      "adim": "kelime_say",
+      "yontem": "say_b",
+      "hata": "yanlis sonuc: 9"
+    },
+    {
+      "adim": "dosya_olustur",
+      "yontem": "olustur_b",
+      "hata": "FileNotFoundError: [Errno 2] No such file or directory: 'olmayan_klasor\\\\metin.txt'"
+    },
+    {
+      "adim": "dosyayi_oku",
+      "yontem": "oku_b",
+      "hata": "FileNotFoundError: [Errno 2] No such file or directory: 'calisma\\\\metin.txtx'"
+    },
+    {
+      "adim": "kelime_say",
+      "yontem": "say_b",
+      "hata": "yanlis sonuc: 9"
+    }
+  ]
+}
