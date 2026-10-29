@@ -454,6 +454,106 @@
       "gorev": "rapor_yaz",
       "yontem": "rapor_a",
       "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosya_olustur",
+      "yontem": "olustur_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyayi_oku",
+      "yontem": "oku_a",
+      "basarili": true
+    },
+    {
+      "gorev": "kelime_say",
+      "yontem": "say_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
     }
   ],
   "hatalar": [
