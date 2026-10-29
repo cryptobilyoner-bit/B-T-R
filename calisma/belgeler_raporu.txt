@@ -1,0 +1,4 @@
+ornek1.txt: 9 kelime
+ornek2.txt: 5 kelime
+ornek3.txt: 5 kelime
+TOPLAM: 19 kelime
