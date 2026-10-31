@@ -1,0 +1,200 @@
+{
+  "deneyimler": [
+    {
+      "gorev": "dosyalari_listele",
+      "yontem": "listele_a",
+      "basarili": true
+    },
+    {
+      "gorev": "yedek_al",
+      "yontem": "yedek_b",
+      "basarili": false
+    },
+    {
+      "gorev": "yedek_al",
+      "yontem": "yedek_a",
+      "basarili": true
+    },
+    {
+      "gorev": "turune_gore_ayir",
+      "yontem": "ayir_b",
+      "basarili": false
+    },
+    {
+      "gorev": "turune_gore_ayir",
+      "yontem": "ayir_a",
+      "basarili": true
+    },
+    {
+      "gorev": "csv_oku",
+      "yontem": "csv_b",
+      "basarili": false
+    },
+    {
+      "gorev": "csv_oku",
+      "yontem": "csv_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_listele",
+      "yontem": "listele_b",
+      "basarili": false
+    },
+    {
+      "gorev": "dosyalari_listele",
+      "yontem": "listele_a",
+      "basarili": true
+    },
+    {
+      "gorev": "yedek_al",
+      "yontem": "yedek_a",
+      "basarili": true
+    },
+    {
+      "gorev": "turune_gore_ayir",
+      "yontem": "ayir_a",
+      "basarili": true
+    },
+    {
+      "gorev": "csv_oku",
+      "yontem": "csv_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_b",
+      "basarili": false
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_listele",
+      "yontem": "listele_a",
+      "basarili": true
+    },
+    {
+      "gorev": "yedek_al",
+      "yontem": "yedek_a",
+      "basarili": true
+    },
+    {
+      "gorev": "turune_gore_ayir",
+      "yontem": "ayir_a",
+      "basarili": true
+    },
+    {
+      "gorev": "csv_oku",
+      "yontem": "csv_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_listele",
+      "yontem": "listele_a",
+      "basarili": true
+    },
+    {
+      "gorev": "yedek_al",
+      "yontem": "yedek_a",
+      "basarili": true
+    },
+    {
+      "gorev": "turune_gore_ayir",
+      "yontem": "ayir_a",
+      "basarili": true
+    },
+    {
+      "gorev": "csv_oku",
+      "yontem": "csv_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_b",
+      "basarili": false
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    },
+    {
+      "gorev": "dosyalari_listele",
+      "yontem": "listele_a",
+      "basarili": true
+    },
+    {
+      "gorev": "yedek_al",
+      "yontem": "yedek_a",
+      "basarili": true
+    },
+    {
+      "gorev": "turune_gore_ayir",
+      "yontem": "ayir_a",
+      "basarili": true
+    },
+    {
+      "gorev": "csv_oku",
+      "yontem": "csv_a",
+      "basarili": true
+    },
+    {
+      "gorev": "rapor_yaz",
+      "yontem": "rapor_a",
+      "basarili": true
+    }
+  ],
+  "dersler": {
+    "dosyalari_listele": [],
+    "yedek_al": [],
+    "turune_gore_ayir": [],
+    "csv_oku": [],
+    "rapor_yaz": [
+      "rapor_b"
+    ]
+  },
+  "hatalar": [
+    {
+      "adim": "yedek_al",
+      "yontem": "yedek_b",
+      "hata": "FileNotFoundError: [WinError 3] Sistem belirtilen yolu bulamıyor"
+    },
+    {
+      "adim": "turune_gore_ayir",
+      "yontem": "ayir_b",
+      "hata": "yanlis sonuc: {'n': ['not1.txt', 'not2.txt'], 'o': ['ozet.md'], 'u': ['urunler.csv']}"
+    },
+    {
+      "adim": "csv_oku",
+      "yontem": "csv_b",
+      "hata": "yanlis sonuc: {'dosya': 1, 'satir': 3, 'adet_toplam': 0}"
+    },
+    {
+      "adim": "dosyalari_listele",
+      "yontem": "listele_b",
+      "hata": "yanlis sonuc: ['duzenlenecek\\\\not1.txt', 'duzenlenecek\\\\not2.txt']"
+    },
+    {
+      "adim": "rapor_yaz",
+      "yontem": "rapor_b",
+      "hata": "TypeError: write() argument must be str, not int"
+    },
+    {
+      "adim": "rapor_yaz",
+      "yontem": "rapor_b",
+      "hata": "TypeError: write() argument must be str, not int"
+    }
+  ]
+}
