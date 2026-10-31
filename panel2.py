@@ -63,7 +63,7 @@ input[type=text],textarea{width:100%;box-sizing:border-box;padding:6px;margin:4p
 
 <div class="kart">
 <h3>0. Görev seç</h3>
-<select id="gorev" onchange="gorevDegisti()">
+<select id="gorevKutusu" onchange="gorevDegisti()">
 <option value="kelime">Kelime raporu</option>
 <option value="klasor">Klasör düzenleme</option>
 </select>
@@ -110,10 +110,10 @@ Tur sayısı: <input type="number" id="turSayisi" value="1" min="1" max="20" sty
 
 <script>
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-function gorev(){return document.getElementById("gorev").value;}
+function secilenGorev(){return document.getElementById("gorevKutusu").value;}
 
 async function durumYukle(){
-  const r = await fetch("/durum?gorev=" + gorev());
+  const r = await fetch("/durum?gorev=" + secilenGorev());
   const d = await r.json();
   document.getElementById("aciklama").textContent = d.aciklama;
   document.getElementById("hedefKlasor").textContent = d.klasor;
@@ -157,7 +157,7 @@ async function dosyalariYukle(){
   const hatalar = [];
   for (const f of secici.files){
     const b64 = await dosyaOku(f);
-    const s = await gonder("/yukle", {gorev: gorev(), ad: f.name, b64: b64});
+    const s = await gonder("/yukle", {gorev: secilenGorev(), ad: f.name, b64: b64});
     if (s.hata){ hatalar.push(s.hata); } else { sayi++; }
   }
   mesaj.textContent = sayi + " dosya yüklendi. " + hatalar.join(" ");
@@ -170,18 +170,18 @@ async function metniKaydet(){
   const icerik = document.getElementById("yeniMetin").value;
   const mesaj = document.getElementById("yukleMesaj");
   if (!icerik.trim()){ mesaj.textContent = "Önce bir metin yazın."; return; }
-  const s = await gonder("/yukle", {gorev: gorev(), ad: ad, icerik: icerik});
+  const s = await gonder("/yukle", {gorev: secilenGorev(), ad: ad, icerik: icerik});
   mesaj.textContent = s.mesaj || s.hata;
   document.getElementById("yeniMetin").value = "";
   durumYukle();
 }
 
 async function gorevCalistir(){
-  const g = document.getElementById("gunluk");
-  g.textContent = "BİTİR çalışıyor...";
+  const kutu = document.getElementById("gunluk");
+  kutu.textContent = "BİTİR çalışıyor...";
   const tur = parseInt(document.getElementById("turSayisi").value) || 1;
-  const s = await gonder("/calistir", {gorev: gorev(), tur: tur});
-  g.textContent = s.log;
+  const s = await gonder("/calistir", {gorev: secilenGorev(), tur: tur});
+  kutu.textContent = s.log;
   durumYukle();
 }
 
@@ -227,4 +227,180 @@ def durum(kod):
     for adim in mod.ADIMLAR:
         for y in adim["yontemler"]:
             toplam, basarili = hafiza.istatistik(adim["ad"], y)
-            istatistik.append({"adim": adim["ad"],
+            istatistik.append({
+                "adim": adim["ad"],
+                "yontem": y,
+                "toplam": toplam,
+                "basarili": basarili,
+            })
+
+    rapor = ""
+    if os.path.exists(gv["rapor"]):
+        with open(gv["rapor"], "r", encoding="utf-8") as f:
+            rapor = f.read()
+
+    klasorler = []
+    if kod == "klasor":
+        kok = os.path.join(klasor.CALISMA, "duzenli")
+        if os.path.isdir(kok):
+            for uz in sorted(os.listdir(kok)):
+                yol = os.path.join(kok, uz)
+                if os.path.isdir(yol):
+                    klasorler.append(uz + " (" + str(len(os.listdir(yol))) + " dosya)")
+
+    hatalar = hafiza.veri.get("hatalar", [])
+    return {
+        "aciklama": gv["aciklama"],
+        "klasor": gv["klasor"],
+        "dosyalar": dosyalar,
+        "istatistik": istatistik,
+        "rapor": rapor,
+        "klasorler": klasorler,
+        "yasaklilar": {k: v for k, v in hafiza.veri.get("dersler", {}).items() if v},
+        "hatalar": hatalar[-8:],
+        "hata_toplam": len(hatalar),
+    }
+
+
+def yukle(veri):
+    gv = gorev_al(veri.get("gorev"))
+    ad = os.path.basename(str(veri.get("ad", "")).strip())
+    ad = re.sub(r"[^\w.\- ]", "_", ad)
+    if not ad:
+        ad = "yeni_dosya"
+    uz = os.path.splitext(ad)[1].lower()
+    if "b64" not in veri and uz == "":
+        ad += ".txt"  # elle yazılan metne uzantı ekle
+        uz = ".txt"
+    if gv["sadece_txt"]:
+        if uz == "":
+            ad += ".txt"
+            uz = ".txt"
+        elif uz != ".txt":
+            return {"hata": "'" + ad + "' alınmadı: bu görev yalnızca .txt dosyası kabul eder."}
+
+    if "b64" in veri:
+        try:
+            ham = base64.b64decode(veri["b64"])
+        except (ValueError, TypeError):
+            return {"hata": "'" + ad + "' okunamadı."}
+    else:
+        ham = str(veri.get("icerik", "")).encode("utf-8")
+
+    # Metin dosyalarını UTF-8'e çevir (Türkçe harfler bozulmasın)
+    if uz in METIN_UZANTILARI:
+        metin = None
+        try:
+            metin = ham.decode("utf-8-sig")
+        except UnicodeDecodeError:
+            try:
+                metin = ham.decode("cp1254")
+            except UnicodeDecodeError:
+                metin = None
+        if metin is not None:
+            ham = metin.encode("utf-8")
+
+    os.makedirs(gv["klasor"], exist_ok=True)
+    with open(os.path.join(gv["klasor"], ad), "wb") as f:
+        f.write(ham)
+    return {"mesaj": "'" + ad + "' kaydedildi."}
+
+
+def calistir(veri):
+    gv = gorev_al(veri.get("gorev"))
+    mod = gv["modul"]
+    try:
+        tur_sayisi = int(veri.get("tur", 1))
+    except (TypeError, ValueError):
+        tur_sayisi = 1
+    tur_sayisi = max(1, min(20, tur_sayisi))
+
+    tampon = io.StringIO()
+    with contextlib.redirect_stdout(tampon):
+        try:
+            mod.ornek_dosyalari_hazirla()
+            if not dosya_var(gv):
+                print("'" + gv["klasor"] + "' klasöründe bu göreve uygun dosya yok. Önce bir dosya ekleyin.")
+            else:
+                hafiza = Hafiza(gv["hafiza"])
+                motor = AkilliKararMotoru(hafiza)
+                for ders in mod.ders_cikar(hafiza):
+                    print("DERS: " + ders + " hiç başarılı olmadı, artık denenmeyecek.")
+                for tur in range(1, tur_sayisi + 1):
+                    print("=== GÖREV TURU " + str(tur) + " ===")
+                    baglam = {}
+                    tamam = True
+                    for adim in mod.ADIMLAR:
+                        if not kelime.adimi_calistir(motor, hafiza, adim, baglam):
+                            tamam = False
+                            print("   Görev yarım kaldı!")
+                            break
+                    if tamam:
+                        print("   Görev tamamlandı.")
+                    for ders in mod.ders_cikar(hafiza):
+                        print("   DERS: " + ders + " hiç başarılı olmadı, artık denenmeyecek.")
+        except Exception as e:
+            print("Beklenmeyen hata: " + type(e).__name__ + ": " + str(e))
+    return {"log": tampon.getvalue()}
+
+
+class Isleyici(BaseHTTPRequestHandler):
+    def _gonder(self, kod, icerik, tur):
+        veri = icerik.encode("utf-8")
+        self.send_response(kod)
+        self.send_header("Content-Type", tur)
+        self.send_header("Content-Length", str(len(veri)))
+        self.end_headers()
+        self.wfile.write(veri)
+
+    def _json(self, nesne, kod=200):
+        self._gonder(kod, json.dumps(nesne, ensure_ascii=False), "application/json; charset=utf-8")
+
+    def do_GET(self):
+        yol = urlparse(self.path)
+        if yol.path == "/":
+            self._gonder(200, SAYFA, "text/html; charset=utf-8")
+        elif yol.path == "/durum":
+            kod = parse_qs(yol.query).get("gorev", ["kelime"])[0]
+            self._json(durum(kod))
+        else:
+            self._gonder(404, "Bulunamadi", "text/plain; charset=utf-8")
+
+    def do_POST(self):
+        uzunluk = int(self.headers.get("Content-Length", 0))
+        if uzunluk > MAX_BOYUT:
+            self._json({"hata": "Dosya çok büyük (en fazla yaklaşık 14 MB)."}, 413)
+            return
+        govde = self.rfile.read(uzunluk)
+        try:
+            veri = json.loads(govde.decode("utf-8")) if govde else {}
+        except ValueError:
+            self._json({"hata": "Geçersiz veri."}, 400)
+            return
+        if self.path == "/yukle":
+            self._json(yukle(veri))
+        elif self.path == "/calistir":
+            self._json(calistir(veri))
+        else:
+            self._json({"hata": "Bilinmeyen istek."}, 404)
+
+    def log_message(self, *args):
+        pass  # ekranı gereksiz yazılarla doldurmasın
+
+
+def main():
+    # Hangi klasörden çalıştırılırsa çalıştırılsın, dosyalar proje klasöründe aransın
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    adres = "http://localhost:" + str(PORT)
+    sunucu = HTTPServer(("127.0.0.1", PORT), Isleyici)
+    print("BİTİR paneli çalışıyor: " + adres)
+    print("Kapatmak için bu pencerede Ctrl + C tuşlarına basın.")
+    webbrowser.open(adres)
+    try:
+        sunucu.serve_forever()
+    except KeyboardInterrupt:
+        print("\nPanel kapatıldı.")
+
+
+if __name__ == "__main__":
+    main()
