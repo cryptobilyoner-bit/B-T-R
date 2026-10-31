@@ -1,5 +1,0 @@
-TOPLAM DOSYA: 4
-.csv: 1 dosya (urunler.csv)
-.md: 1 dosya (ozet.md)
-.txt: 2 dosya (not1.txt, not2.txt)
-CSV: 1 dosya, 3 satir, adet toplami 10
